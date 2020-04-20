@@ -1,0 +1,52 @@
+---
+title: "Prueba"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+```{r}
+library(reticulate)
+use_python("C:/ProgramData/Anaconda3/Library/bin/")
+os <- import("os")
+os$listdir(".")
+source_python("add.py")
+add(3,4)
+```
+
+```{r}
+np <- import("numpy", convert = FALSE)
+x <- np$array(c(1:4))
+sum <- x$cumsum()
+print(sum)
+py_to_r(sum)
+```
+
+Esto es una fórmula en LaTeX
+$$\int_0^1 x\ dx = \left. \frac{x^2}{2}\right]_0^1 = \frac{1}{2}$$
+
+```{r cars}
+summary(cars)
+```
+
+
+### Mis chunks
+
+Ejemplo $sqrt(2) - e^{-1}$
+```{r}
+sqrt(2) - exp(-1)
+```
+
+
+
+
+
+
